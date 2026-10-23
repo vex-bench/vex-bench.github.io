@@ -1,0 +1,37 @@
+# Generated website and build staging
+/dist/
+/public/data/
+.vex-build-*/
+.vex-previous-build/
+
+# Dependencies, caches, and local test output
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store
+test-results/
+.pytest_cache/
+.venv/
+.env
+.env.*
+!.env.example
+/.aws/
+/.codex/
+/.agents/
+
+# Keep raw experiment artifacts local; metadata and prompts remain versionable.
+/data/uploads/*/*/trajectories/
+/data/submissions/*/*/trajectories/
+/data/deferred-results/
+/data/local-archives/
+
+# Local source archives at the repository root
+/*.zip
+/*.tar
+/*.tar.gz
+/*.tgz
+/*.tar.zst
+/*.7z
+/*.rar
+
+AGENTS.md

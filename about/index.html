@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Benchmarking LLM agents for assessing exploitability of software supply chain vulnerabilities.">
+  <meta name="theme-color" content="#ffffff">
+  <title>About · VEX-Bench</title>
+  <link rel="icon" type="image/png" href="../assets/logo-options/package-reachability-charcoal.png?v=de6aefe801e1">
+  <link rel="preload" href="../assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/styles.css?v=de6aefe801e1">
+  <script type="module" src="../assets/app.mjs?v=de6aefe801e1"></script>
+</head>
+<body data-page="about" data-root="../">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../" aria-label="VEX-Bench home"><img src="../assets/logo-options/package-reachability-charcoal.png?v=de6aefe801e1" alt="" width="48" height="48"><span>VEX<span class="brand-hyphen">-</span>Bench<span class="brand-dot">.</span></span></a>
+      <button class="mobile-menu" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation"><span></span><span></span></button>
+      <nav class="primary-nav" id="primary-nav" aria-label="Main navigation"><a href="../">Leaderboard</a><a href="../about/" aria-current="page">About</a><a href="../submit/">Submit</a></nav>
+      <nav class="resource-nav" aria-label="Research resources">
+        <a href="https://github.com/steven1518/vex-bench" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4 1-4-2-6-2m12 5v-4a3.5 3.5 0 0 0-1-3c3-.4 6-1.5 6-7a5 5 0 0 0-1.5-3.5A5 5 0 0 0 18.3 1S17 1 14.5 2.5a13 13 0 0 0-7 0C5 1 3.7 1 3.7 1a5 5 0 0 0-.2 3.5A5 5 0 0 0 2 8c0 5.5 3 6.6 6 7a3.5 3.5 0 0 0-1 3v4"/></svg><span>GitHub</span></a>
+        <a href="https://arxiv.org/pdf/2609.08040" target="_blank" rel="noopener noreferrer">Paper <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+        <a href="../data/tasks-2026-05.jsonl" data-dataset-download download>Dataset <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+        <a href="../about/#citation">Cite <span class="quote-icon">❞</span></a>
+      </nav>
+    </div>
+  </header>
+  <main id="main"><section class="document-intro container">
+  <div class="eyebrow">THE BENCHMARK</div>
+  <h1>A vulnerable dependency.<br><span>But is the project affected?</span></h1>
+  <p>VEX-Bench evaluates whether LLM agents can turn a dependency alert into an evidence-backed assessment of real-world exploitability.</p>
+  <div class="intro-actions"><a class="button button-primary" href="../">Explore the leaderboard <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a><a class="button button-secondary" href="../data/tasks-2026-05.jsonl" download>Download dataset <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></svg></a></div>
+</section>
+<div class="document-layout container">
+  <aside class="document-sidebar"><span class="sidebar-label">ON THIS PAGE</span><a href="#motivation">Why VEX-Bench?</a><a href="#task">The task</a><a href="#dataset">Dataset</a><a href="#evaluation">Evaluation</a><a href="#paper">Paper</a><a href="#citation">Citation</a></aside>
+  <div class="document-content">
+    <section id="motivation" class="document-section"><div class="section-index">01 / MOTIVATION</div><h2>An alert is only the beginning.</h2><p>Dependency scanners flag known vulnerabilities. Determining whether those vulnerabilities can actually affect a downstream project requires a deeper look: which code is used, which paths are reachable, and which conditions make an exploit possible.</p><p>VEX-Bench studies this cross-repository reasoning. Agents work with complete project snapshots and CVE identifiers, gathering evidence to explain whether a project is affected—and why.</p><blockquote>Correctly predicting a verdict is one challenge.<br>Explaining the right reason is another.</blockquote></section>
+    <section id="task" class="document-section"><div class="section-index">02 / TASK</div><h2>From code and CVE to a justified verdict.</h2><div class="task-flow"><div><span class="flow-step">INPUT</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 6-6 6 6 6m8-12 6 6-6 6m-3-15-2 18"/></svg><strong>Project + CVE</strong><p>A source snapshot at a fixed commit and a vulnerability identifier.</p></div><span class="flow-arrow">→</span><div><span class="flow-step">ANALYSIS</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg><strong>Agent investigation</strong><p>Inspect dependencies, follow code paths, and retrieve vulnerability details.</p></div><span class="flow-arrow">→</span><div><span class="flow-step">OUTPUT</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><strong>Verdict + evidence</strong><p>A status, justification category, and supporting explanation.</p></div></div><h3>Five ground-truth categories</h3><div class="category-list"><div><span class="category-marker affected"></span><code>vulnerable</code><p>The project is affected by the vulnerability.</p></div><div><span class="category-marker"></span><code>code_not_reachable</code><p>The vulnerable code cannot be reached along an exploitable execution path.</p></div><div><span class="category-marker"></span><code>code_not_present</code><p>The vulnerable code is absent from the project’s dependency context.</p></div><div><span class="category-marker"></span><code>requires_configuration</code><p>Exploitation depends on a configuration the assessed project does not enable.</p></div><div><span class="category-marker"></span><code>requires_environment</code><p>Exploitation requires environmental conditions absent from the assessed setup.</p></div></div></section>
+    <section id="dataset" class="document-section"><div class="section-index">03 / DATASET</div><h2>Real projects. Expert annotations.</h2><p>The paper’s dataset contains 75 manually annotated cases spanning 67 CVEs and 35 projects. Cases are mined from GitHub dependency-related pull requests and reviewed by annotators with software engineering and security experience.</p><div class="dataset-breakdown"><div class="language-row"><span class="language-name"><span class="language-dot language-go"></span>Go</span><span class="language-bar"><span class="language-go" style="width:40.0%"></span></span><strong>30</strong><span>cases</span></div><div class="language-row"><span class="language-name"><span class="language-dot language-java"></span>Java</span><span class="language-bar"><span class="language-java" style="width:33.33333333333333%"></span></span><strong>25</strong><span>cases</span></div><div class="language-row"><span class="language-name"><span class="language-dot language-python"></span>Python</span><span class="language-bar"><span class="language-python" style="width:26.666666666666668%"></span></span><strong>20</strong><span>cases</span></div></div><div class="inline-note"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-11v1"/></svg><p>Each case identifies an exact repository commit. The paper dataset is presented as the <strong>2026-05</strong> release. Results remain associated with that release.</p></div></section>
+    <section id="evaluation" class="document-section"><div class="section-index">04 / EVALUATION</div><h2>Evaluate both the verdict and the reason.</h2><div class="metric-explainer"><div><span class="metric-label">VULNERABILITY STATUS</span><h3>Is the project affected?</h3><p>Binary accuracy, precision, recall, and F1 measure affected / not-affected predictions. Precision, recall, and F1 use the affected class as positive.</p></div><div><span class="metric-label warm">JUSTIFICATION</span><h3>Does the explanation classify correctly?</h3><p>Accuracy, macro-F1, and weighted-F1 measure fine-grained label predictions. Macro-F1 weights classes equally; weighted-F1 accounts for class frequency.</p></div></div><p>The paper evaluates each main configuration over three independent runs, with a ten-minute limit per task in isolated Docker environments. The leaderboard preserves recorded means and standard deviations across the three runs.</p><p>Tokens and estimated USD cost are per-case averages where available. Paper entries preserve historical cost estimates. Red Hat entries are computed from original outputs using the same evaluator; unknown costs display as —. Prompts and execution settings may differ between experiments. Use the submitter filter and configuration details when comparing results.</p></section>
+    <section id="paper" class="document-section"><div class="section-index">05 / PAPER</div><h2>Read the research.</h2><div class="paper-block"><span class="paper-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H5v20h14V7Zm0 0v6h5M8 12h8m-8 4h8"/></svg></span><div><h3>VEX-Bench: Benchmarking LLM Agents for Assessing Exploitability of Software Supply Chain Vulnerabilities</h3><p>Jiahao Shi, Edward Tsien, Yifeng Di, Hongjiao Zhang, and collaborators</p><span class="paper-affiliation">Purdue University · Red Hat</span><a class="text-link" href="https://arxiv.org/pdf/2609.08040" target="_blank" rel="noopener noreferrer">Read the paper <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div></div></section>
+    <section id="citation" class="document-section"><div class="section-index">06 / CITATION</div><h2>Building on VEX-Bench?</h2><p>Cite the arXiv preprint using the BibTeX below.</p><div class="code-block"><div class="code-heading"><span>BibTeX</span><button class="copy-button" type="button" data-copy="citation-code"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M15 8V3H3v13h5"/></svg> Copy</button></div><pre id="citation-code">@misc{shi2026vexbench,
+  title = {VEX-Bench: Benchmarking LLM Agents for Assessing Exploitability of Software Supply Chain Vulnerabilities},
+  author = {Jiahao Shi and Edward Tsien and Yifeng Di and Hongjiao Zhang and Yuan Tang and Ronit Dey and Ilona Shishov and Gal Netanel and Zvi Grinberg and Vladimir Belousov and Bat-Zion Rotman and Ilan Pinto and Tianyi Zhang},
+  year = {2026},
+  eprint = {2609.08040},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.CR},
+  doi = {10.48550/arXiv.2609.08040},
+  url = {https://arxiv.org/abs/2609.08040}
+}</pre></div></section>
+  </div>
+</div>
+</main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a class="footer-brand" href="../">VEX-Bench<span>.</span></a>
+      <p>Understanding exploitability. Evaluating the reasoning.</p>
+      <div><a href="../about/">About the benchmark</a><a href="https://github.com/steven1518/vex-bench" target="_blank" rel="noopener noreferrer">Source code <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+    </div>
+    <div class="footer-bottom"><span>A research benchmark for software supply chain security.</span><span class="collaboration-credit"><span class="partner-name">Purdue University</span><span class="partner-times">×</span><span class="partner-name">Red Hat</span></span></div>
+  </footer>
+  <div class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

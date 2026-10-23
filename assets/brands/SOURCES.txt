@@ -1,0 +1,18 @@
+Model and harness SVG marks are from Lobe Icons:
+https://github.com/lobehub/lobe-icons
+https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/
+Retrieved 2026-10-18. The included LICENSE is the upstream MIT license.
+
+Models: claude.svg, openai.svg, kimi.svg, deepseek.svg, minimax.svg, zai.svg
+Harnesses: claudecode.svg, codex.svg, opencode.svg
+
+Added 2026-10-19: cursor.svg (Cursor harness and Composer models), grok.svg
+(Grok models), from the same MIT-licensed Lobe Icons collection. Static SVG
+wrappers use the unmodified paths in these upstream source components:
+https://github.com/lobehub/lobe-icons/blob/master/src/Cursor/components/Mono.tsx
+https://github.com/lobehub/lobe-icons/blob/master/src/Grok/components/Mono.tsx
+Upstream maps Composer models to Cursor:
+https://github.com/lobehub/lobe-icons/releases/tag/v5.21.0
+
+Marks identify the associated models and tools; their brand rights remain with
+their respective owners. The original SVG paths have not been altered.

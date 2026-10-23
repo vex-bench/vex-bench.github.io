@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Benchmarking LLM agents for assessing exploitability of software supply chain vulnerabilities.">
+  <meta name="theme-color" content="#ffffff">
+  <title>Submit · VEX-Bench</title>
+  <link rel="icon" type="image/png" href="../assets/logo-options/package-reachability-charcoal.png?v=de6aefe801e1">
+  <link rel="preload" href="../assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/styles.css?v=de6aefe801e1">
+  <script type="module" src="../assets/app.mjs?v=de6aefe801e1"></script>
+</head>
+<body data-page="submit" data-root="../">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../" aria-label="VEX-Bench home"><img src="../assets/logo-options/package-reachability-charcoal.png?v=de6aefe801e1" alt="" width="48" height="48"><span>VEX<span class="brand-hyphen">-</span>Bench<span class="brand-dot">.</span></span></a>
+      <button class="mobile-menu" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation"><span></span><span></span></button>
+      <nav class="primary-nav" id="primary-nav" aria-label="Main navigation"><a href="../">Leaderboard</a><a href="../about/">About</a><a href="../submit/" aria-current="page">Submit</a></nav>
+      <nav class="resource-nav" aria-label="Research resources">
+        <a href="https://github.com/steven1518/vex-bench" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4 1-4-2-6-2m12 5v-4a3.5 3.5 0 0 0-1-3c3-.4 6-1.5 6-7a5 5 0 0 0-1.5-3.5A5 5 0 0 0 18.3 1S17 1 14.5 2.5a13 13 0 0 0-7 0C5 1 3.7 1 3.7 1a5 5 0 0 0-.2 3.5A5 5 0 0 0 2 8c0 5.5 3 6.6 6 7a3.5 3.5 0 0 0-1 3v4"/></svg><span>GitHub</span></a>
+        <a href="https://arxiv.org/pdf/2609.08040" target="_blank" rel="noopener noreferrer">Paper <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+        <a href="../data/tasks-2026-05.jsonl" data-dataset-download download>Dataset <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+        <a href="../about/#citation">Cite <span class="quote-icon">❞</span></a>
+      </nav>
+    </div>
+  </header>
+  <main id="main"><section class="document-intro container">
+  <div class="eyebrow">CONTRIBUTE AN EVALUATION</div>
+  <h1>Your agent.<br><span>The same benchmark.</span></h1>
+  <p>Prepare your original results for evaluation. Read the current submission status before opening a pull request.</p>
+  <div class="intro-actions">
+    <a class="button button-primary" href="../data/submission-template.zip" download>Download starter files <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></svg></a>
+    <a class="button button-secondary" href="https://github.com/vex-bench/vex-bench.github.io" target="_blank" rel="noopener noreferrer">Website repository <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+  </div>
+</section>
+<div class="document-layout container">
+  <aside class="document-sidebar">
+    <span class="sidebar-label">SUBMISSION GUIDE</span>
+    <a href="#workflow">Workflow</a>
+    <a href="#format">Upload contents</a>
+    <a href="#submission-id">Submission ID</a>
+    <a href="#metadata">Metadata</a>
+    <a href="#trajectories">Original run files</a>
+    <a href="#processed-results">Processed results</a>
+  </aside>
+  <div class="document-content">
+    <div class="inline-note submission-status"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-11v1"/></svg><p><strong>Submission format v1.</strong> This is the proposed input format. Native processing of this layout, automatic PR processing, and external trajectory storage/delivery remain pending. <a href="https://github.com/vex-bench/vex-bench.github.io/issues" target="_blank" rel="noopener noreferrer">Contact the maintainers</a> before sending raw artifacts.</p></div>
+
+    <section id="workflow" class="document-section">
+      <div class="section-index">01 / WORKFLOW</div>
+      <h2>Package results. Open a PR.</h2>
+      <ol class="submission-steps">
+        <li><span class="step-number">01</span><div><h3>Package your evaluation</h3><p>Include your configuration metadata, exact prompt template, and original outputs for every task and run, including failures. A packaging command in the benchmark repository is planned to produce this format.</p></div></li>
+        <li><span class="step-number">02</span><div><h3>Coordinate your submission</h3><p>Discuss original artifact delivery in a <a href="https://github.com/vex-bench/vex-bench.github.io/issues" target="_blank" rel="noopener noreferrer">website-repository issue</a> first. Prepare the expanded folder under <code>data/uploads/&lt;submitter-id&gt;/&lt;submission-id&gt;/</code> for the proposed PR format. Reuse your team's submitter folder for later submissions. One PR may include several configuration folders. Maintainers validate and score your results with the official tools from the benchmark repository, then integrate accepted results here.</p></div></li>
+      </ol>
+      <p>You provide original results. The benchmark tooling handles validation, parsing, and scoring; this website receives submissions and displays accepted results. Predictions, file inventories, checksums, and scores are generated during processing.</p>
+    </section>
+
+    <section id="format" class="document-section">
+      <div class="section-index">02 / UPLOAD CONTENTS</div>
+      <h2>Three parts per configuration.</h2>
+      <div class="code-block">
+        <div class="code-heading"><span>Directory structure</span></div>
+        <pre>data/uploads/
+└── redhat/
+    └── redhat-2026-10-05-cursor-grok-4.6/
+        ├── metadata.json
+        ├── prompt.txt
+        └── trajectories/  # Retained locally, ignored by Git
+            └── &lt;task-id&gt;/&lt;run-id&gt;/
+                └── original outputs, logs, or errors</pre>
+      </div>
+      <p>Each folder represents one model/harness configuration. Different models, prompts, harness versions, or execution settings belong in separate folders. Repeated runs share the same configuration.</p>
+      <p>The parent submitter folder must match <code>metadata.json</code>'s <code>submitter.id</code> exactly. Use a stable lowercase team slug such as <code>redhat</code>. Each submission folder must match <code>metadata.json</code>'s <code>id</code>.</p>
+      <p>The repository versions metadata, prompts, and accepted processed results. Original trajectories are required for processing but currently ignored by Git; do not force-add large logs while artifact delivery remains undecided. The downloadable ZIP is a starter. Replace its placeholder prompt and example metadata with your actual experiment.</p>
+      <p>Include the exact prompt template in <code>prompt.txt</code>, preserving its text and placeholders. Keep additional recorded instructions and per-task expanded prompts with the corresponding run files.</p>
+    </section>
+
+    <section id="submission-id" class="document-section">
+      <div class="section-index">03 / SUBMISSION ID</div>
+      <h2>A readable, unique folder name.</h2>
+      <div class="code-block">
+        <div class="code-heading"><span>Naming convention</span></div>
+        <pre>&lt;submitter&gt;-&lt;YYYY-MM-DD&gt;-&lt;harness&gt;-&lt;model&gt;[-&lt;variant&gt;]
+
+redhat-2026-10-05-codex-gpt-5.5
+redhat-2026-10-05-codex-gpt-5.5-high
+redhat-2026-10-05-claude-claude-sonnet-4.6</pre>
+      </div>
+      <ul>
+        <li>Use your stable submitter ID and the UTC date the PR is first submitted. If <code>submission_date</code> is set, it must match that date.</li>
+        <li>Use lowercase letters, digits, hyphens, and dots. Keep dots in versions; convert spaces, underscores, slashes, and other separators to hyphens. Start and end with a letter or digit.</li>
+        <li>The folder name must match <code>metadata.json</code>'s <code>id</code> exactly and be unique across uploads and accepted submissions.</li>
+        <li>Add a short variant only when needed to distinguish configurations, such as <code>high</code>, <code>custom-prompt</code>, or <code>2</code>.</li>
+        <li>Keep the ID stable when correcting the same PR. Use a new ID for a separate submission.</li>
+      </ul>
+      <p>The full configuration stays in metadata; parsers do not infer settings from the folder name. Exact model and harness identifiers remain unchanged in metadata.</p>
+      <p>Keep the submitter prefix in each submission ID so it remains unique when accepted entries are stored outside the submitter folder.</p>
+    </section>
+
+    <section id="metadata" class="document-section">
+      <div class="section-index">04 / METADATA</div>
+      <h2>Describe the experiment you ran.</h2>
+      <p>This example describes the active Red Hat Cursor / Grok 4.6 configuration. Unknown settings remain unknown. Only final outputs were supplied; full interaction traces are unavailable. Its historical submission date was supplied by the maintainer.</p>
+      <div class="code-block">
+        <div class="code-heading"><span>metadata.json · Red Hat example</span><button class="copy-button" type="button" data-copy="metadata-example"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M15 8V3H3v13h5"/></svg> Copy</button></div>
+        <pre id="metadata-example">{
+  &quot;schema_version&quot;: 1,
+  &quot;id&quot;: &quot;redhat-2026-10-05-cursor-grok-4.6&quot;,
+  &quot;submitter&quot;: {
+    &quot;id&quot;: &quot;redhat&quot;,
+    &quot;name&quot;: &quot;Red Hat&quot;
+  },
+  &quot;dataset&quot;: {
+    &quot;id&quot;: &quot;vex-bench&quot;,
+    &quot;version&quot;: &quot;2026-05&quot;
+  },
+  &quot;model&quot;: {
+    &quot;id&quot;: &quot;grok-4.6&quot;,
+    &quot;name&quot;: &quot;Grok 4.6&quot;,
+    &quot;provider&quot;: &quot;xAI&quot;,
+    &quot;settings&quot;: {}
+  },
+  &quot;harness&quot;: {
+    &quot;id&quot;: &quot;cursor&quot;,
+    &quot;name&quot;: &quot;Cursor&quot;,
+    &quot;version&quot;: null,
+    &quot;settings&quot;: {}
+  },
+  &quot;access_provider&quot;: null,
+  &quot;protocol&quot;: null,
+  &quot;run_ids&quot;: [
+    &quot;run_001&quot;,
+    &quot;run_002&quot;,
+    &quot;run_003&quot;
+  ],
+  &quot;settings&quot;: {
+    &quot;timeout_seconds&quot;: null
+  },
+  &quot;artifacts&quot;: {
+    &quot;format&quot;: &quot;cursor-local-isolated-json&quot;,
+    &quot;content&quot;: &quot;final-output-only&quot;
+  },
+  &quot;submission_date&quot;: &quot;2026-10-05&quot;
+}</pre>
+      </div>
+      <p>Required fields are <code>schema_version: 1</code>, <code>id</code>, <code>submitter.id</code>, <code>submitter.name</code>, <code>dataset.id</code>, <code>dataset.version</code>, <code>model.id</code>, <code>harness.id</code>, <code>run_ids</code>, <code>artifacts.format</code>, and <code>artifacts.content</code>. Reference an exact published dataset release. Run IDs must be nonempty, unique, and match the original directory names.</p>
+      <p>Display names, model provider, harness version, model and harness settings, execution settings, access provider, protocol, submission date, and <code>cost_basis</code> are optional. Omit unknown settings or use <code>null</code>; empty settings objects mean nothing was recorded. Record known settings such as reasoning effort, enabled tools, and timeout. Preserve the recorded pricing basis for any cost estimate. Keep access providers such as Vertex AI separate from the harness and model developer.</p>
+      <p>Use <code>YYYY-MM-DD</code> for the actual submission date, or <code>null</code> if unknown. Never substitute the packaging or build date. A matching dataset alone does not establish protocol equivalence.</p>
+      <p>Submission IDs, submitter IDs, task IDs, and run IDs must be single path components, with no slashes, backslashes, or <code>.</code> / <code>..</code> components. Exact model identifiers may include provider prefixes.</p>
+    </section>
+
+    <section id="trajectories" class="document-section">
+      <div class="section-index">05 / ORIGINAL RUN FILES</div>
+      <h2>Keep the original investigation.</h2>
+      <p>Include every task in every declared run exactly once under <code>trajectories/&lt;task-id&gt;/&lt;run-id&gt;/</code>. Use the task IDs from the selected <a href="../data/tasks-2026-05.jsonl" download>dataset task file</a>, rather than CVE IDs alone. Release 2026-05 contains 75 tasks; Red Hat's three runs produce 225 task/run directories per configuration. This example does not introduce a minimum repeat count.</p>
+      <p>Preserve original filenames, subdirectories, outputs, and all available logs and tool records. No common trajectory event format is required. The existing ingestion adapters recognize:</p>
+      <ul>
+        <li><strong>Codex:</strong> <code>harness.id: codex</code>, <code>artifacts.format: codex-jsonl</code>, <code>result.jsonl</code>, and <code>artifacts.content: recorded-events</code>.</li>
+        <li><strong>Claude Code:</strong> <code>harness.id: claude</code> (or the legacy <code>vertex_claude_code</code>), <code>artifacts.format: claude-code-jsonl</code>, <code>result.jsonl</code>, and <code>artifacts.content: recorded-events</code>. Record <code>access_provider: "Vertex AI"</code> when applicable.</li>
+        <li><strong>OpenCode:</strong> <code>harness.id: opencode</code>, <code>artifacts.format: opencode-session-json</code>, <code>result.json</code> plus available <code>artifacts/</code>, and <code>artifacts.content: session-export-and-logs</code>. Historical mixed exports use <code>artifacts.format: opencode-jsonl-or-session-json</code>; preserve both <code>result.jsonl</code> and <code>result.json</code> when available.</li>
+        <li><strong>Cursor:</strong> <code>harness.id: cursor</code>, <code>artifacts.format: cursor-local-isolated-json</code>, <code>result.json</code> containing an <code>output</code> string, and <code>artifacts.content: final-output-only</code>.</li>
+      </ul>
+      <p>Declare final-output-only records explicitly when no interaction trace was supplied. Other harnesses or output formats need a matching parser before scoring; preserve the originals and identify the format in your PR.</p>
+      <h3>Keep failures in the submission.</h3>
+      <p>Retain timeouts, crashes, invalid answers, partial output, and diagnostic logs. Every task/run directory needs at least one result or error/diagnostic file. If none exists, add <code>error.txt</code> with the recorded failure, or <code>No result recorded; cause unknown.</code> when the cause is unknown. The parser determines parsing status.</p>
+      <p>You do not need to supply predictions, labels, aggregate metrics, checksums, a file inventory, or a batch manifest. Keep raw logged usage when available; unknown usage and cost remain unknown.</p>
+      <p class="small-note">Original run files are retained locally for processing. The public trajectory viewer is planned for a future release.</p>
+    </section>
+
+    <section id="processed-results" class="document-section">
+      <div class="section-index">06 / PROCESSED RESULTS</div>
+      <h2>From uploaded files to scored results.</h2>
+      <p>The benchmark tooling produces a separate result package for each submission. Submitters provide the upload files above; maintainers handle these processing outputs.</p>
+      <div class="code-block">
+        <div class="code-heading"><span>Processed result package</span></div>
+        <pre>data/submissions/&lt;submitter-id&gt;/&lt;submission-id&gt;/
+├── predictions.jsonl
+├── reference_metrics.json
+└── processing.json</pre>
+      </div>
+      <p>These files contain per-task/per-run predictions, aggregate scores, and processing provenance. Metadata, the prompt, and original run files stay in the matching upload folder. Prediction references resolve relative to that upload.</p>
+      <p>A result package's <code>processing.json</code> records its submission ID, upload path, input/output hashes, and source attribution. The website reads these stored results after checking the receipt; it does not rerun parsing or scoring. An upload appears on the leaderboard only when its matching processed package exists.</p>
+      <p>An active example is <code>redhat-2026-10-05-cursor-grok-4.6</code>: 225 predictions for 75 tasks across three runs. Its outputs were parsed and scored with the benchmark evaluator through a temporary conversion to the legacy staging format; regenerated predictions and metrics matched the saved files byte for byte.</p>
+      <p>The current leaderboard includes nine paper configurations and four Red Hat Cursor configurations. The four Cursor packages contain 900 task/run records, including four parsing failures, and retain their final-output-only limitation. Paper results preserve their recorded scores across three evaluation runs, numbered 001, 002, and 003.</p>
+      <p class="small-note">A fresh checkout includes metadata, prompts, and processed results. Raw trajectories and deferred local archives are excluded from Git and the deployed website. The trajectory viewer and native processing of this upload layout remain pending.</p>
+    </section>
+  </div>
+</div>
+</main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a class="footer-brand" href="../">VEX-Bench<span>.</span></a>
+      <p>Understanding exploitability. Evaluating the reasoning.</p>
+      <div><a href="../about/">About the benchmark</a><a href="https://github.com/steven1518/vex-bench" target="_blank" rel="noopener noreferrer">Source code <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+    </div>
+    <div class="footer-bottom"><span>A research benchmark for software supply chain security.</span><span class="collaboration-credit"><span class="partner-name">Purdue University</span><span class="partner-times">×</span><span class="partner-name">Red Hat</span></span></div>
+  </footer>
+  <div class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
